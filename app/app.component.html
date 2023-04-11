@@ -1,0 +1,39 @@
+<button type="button" class="btn btn-primary" (click)="SortData(data)">order</button>
+<button type="button" class="btn btn-primary"  (click)="removeDuplicates()">Remove Duplicates</button>
+<button type="button" class="btn btn-primary"  (click)="exporttoExcel(sortedList)">Export to Excel</button>
+<button type="button" class="btn btn-primary"  (click)="exportToPDF(sortedList)">Export to PDF</button>
+
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="clientCode">
+      <th mat-header-cell *matHeaderCellDef> clientCode </th>
+      <td mat-cell *matCellDef="let element"> {{element.clientCode}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="clientName">
+      <th mat-header-cell *matHeaderCellDef> clientName </th>
+      <td mat-cell *matCellDef="let element"> {{element.clientName}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="beneCode">
+      <th mat-header-cell *matHeaderCellDef> beneCode </th>
+      <td mat-cell *matCellDef="let element"> {{element.beneCode}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="beneName">
+      <th mat-header-cell *matHeaderCellDef> beneName </th>
+      <td mat-cell *matCellDef="let element"> {{element.beneName}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
